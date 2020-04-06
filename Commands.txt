@@ -1,0 +1,6 @@
+GitHub Commands 
+
+git pull
+git add .
+git commit -a -m "my work desc"
+git push
