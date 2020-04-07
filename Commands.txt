@@ -1,3 +1,13 @@
+Node
+
+npm init
+npm install --save-dev nodemon 
+npm install --save express 
+Nom install —save body-parser
+
+node server.js
+npm start      (rodar com o nodemon)
+
 GitHub Commands 
 
 git pull

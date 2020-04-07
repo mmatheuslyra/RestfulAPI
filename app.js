@@ -1,14 +1,17 @@
 const express = require('express');
 const app = express();
 const morgan = require('morgan');
+const bodyParser = require('body-parser') 
 
 //This app redirect specific routes for the proper files
 const productRoutes = require('./api/routes/products');
 const ordersRoutes = require('./api/routes/orders');
 
 app.use(morgan('dev')); //log the operations through the server
+app.use(bodyParser.urlencoded({extended: false})); //Receive body requests, the extend iqual to false means that only suport simple bodies
+app.use(bodyParser.json());     //The body parser allows the body property inside the requests
 
-app.get('/',(req, res, next)=>{ // in case of train to access the root adress
+app.get('/',(req, res, next)=>{ //In case of train to access the root adress
     res.status(200).json({
         message: 'Adress not valid'
     });
