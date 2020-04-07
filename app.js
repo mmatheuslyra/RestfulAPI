@@ -11,6 +11,16 @@ app.use(morgan('dev')); //log the operations through the server
 app.use(bodyParser.urlencoded({extended: false})); //Receive body requests, the extend iqual to false means that only suport simple bodies
 app.use(bodyParser.json());     //The body parser allows the body property inside the requests
 
+app.use((req,res,next)=>{ // Handling CORS erros, adjusting the responses headers to inform that is allowed to comunicate with other ports
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', '*');
+    if(req.method === 'OPTIONS'){ // In case of the browser sending a message to find out wich methos are allowed
+        res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET');
+        return  res.status(200).json({});
+    }
+});
+
+
 app.get('/',(req, res, next)=>{ //In case of train to access the root adress
     res.status(200).json({
         message: 'Adress not valid'
