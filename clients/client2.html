@@ -17,7 +17,6 @@
         background-color: #343a40;
         background: url("photo-1510074377623-8cf13fb86c08.jpeg") no-repeat center center;
         background-size: cover;
-        background-attachment: fixed;
         padding-top: 12rem;
         padding-bottom: 12rem;
       }
@@ -33,14 +32,14 @@
       $(document).ready(function(){
 			$('#btncad').click(function(){
         const url = 'http://localhost:3000/orders/';
-        const url2 = 'http://localhost:3000/products/';
-      
-        $.getJSON(url2+$('#rq').val(), function(emp) { 
-            $('#table1').append($("<tr>")
-            .append('<td>' + emp.message+ '</td>')
-            .append('<td>' + emp.id+ '</td>')
-            .append("</tr>"));
-        });       
+
+        $.getJSON(url, function(emp) { 
+          console.log(emp);
+
+            $('#table1').append($("<thead>")
+            .append('<p>Message : ' + emp.message+ '</p>')
+            .append("</thead>"));
+        });        
 			});
 		});
     </script>
@@ -111,12 +110,35 @@
                                 </div>
                                 <div class="card-body table-full-width table-responsive">
                                     <table class="table table-hover table-striped" id="table1">
-                                      <thead>
-                                        <th>Message</th>
-                                        <th>Product ID</th>
-                                    </thead>
+                                        <thead>
+                                            <th>ID</th>
+                                            <th>Name</th>
+                                            <th>Salary</th>
+                                            <th>Country</th>
+                                            <th>City</th>
+                                        </thead>
                                         <tbody>
-
+                                            <tr>
+                                                <td>1</td>
+                                                <td>Dakota Rice</td>
+                                                <td>$36,738</td>
+                                                <td>Niger</td>
+                                                <td>Oud-Turnhout</td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td>Minerva Hooper</td>
+                                                <td>$23,789</td>
+                                                <td>Curaçao</td>
+                                                <td>Sinaai-Waas</td>
+                                            </tr>
+                                            <tr>
+                                                <td>3</td>
+                                                <td>Sage Rodriguez</td>
+                                                <td>$56,142</td>
+                                                <td>Netherlands</td>
+                                                <td>Baileux</td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>

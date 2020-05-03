@@ -21,16 +21,10 @@ router.post('/', (req, res, next)=>{
 
 router.get('/:productID', (req, res, next)=>{
     const id = req.params.productID;
-    if (id == 'special'){
-        res.status(200).json({
-            message: 'GET request for productID',
-            id: id
-        });
-    }else{
-        res.status(200).json({
-            message: 'You passed and ID'
-        });
-    }
+    res.status(200).json({
+        message: 'GET request for productID',
+        id: id
+    });
 });
 
 router.patch('/:productID', (req, res, next)=>{
