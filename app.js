@@ -10,10 +10,9 @@ const productRoutes = require('./api/routes/products');
 const ordersRoutes = require('./api/routes/orders');
 
 //comando brew services start mongodb-community
-mongoose.connect('mongodb://localhost:27017/test',{useNewUrlParser: true}).then(() => console.log('DB Connected!'))
+mongoose.connect('mongodb://localhost:27017/school').then(() => console.log('MongoDB Connected!'))
 .catch(err => {
-console.log(Error, err.message);
-//console.log('Not Connected');
+    console.log(Error, 'Not Connected' + err.message);
 });
 
 app.use(morgan('dev')); //log the operations through the server
