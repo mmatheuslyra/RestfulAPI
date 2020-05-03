@@ -13,10 +13,14 @@ app.use(bodyParser.urlencoded({extended: false})); //Receive body requests, the 
 app.use(bodyParser.json());     //The body parser allows the body property inside the requests
 app.use(cors());
 
+app.use(express.static("./landingPage/"));
+
+
 app.get('/',(req, res, next)=>{ //In case of train to access the root adress
-    res.status(200).json({
+    /*res.status(200).json({
         message: 'Adress not valid'
-    });
+    });*/
+    res.sendFile(__dirname+'/landingPage/client.html');
 });
 
 app.post('/',(req, res, next)=>{
