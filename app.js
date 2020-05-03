@@ -15,7 +15,6 @@ app.use(cors());
 
 app.use(express.static("./landingPage/"));
 
-
 app.get('/',(req, res, next)=>{ //In case of train to access the root adress
     /*res.status(200).json({
         message: 'Adress not valid'
