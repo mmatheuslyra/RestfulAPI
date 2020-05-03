@@ -3,16 +3,23 @@ const express = require('express');
 const app = express();
 const morgan = require('morgan');
 const bodyParser = require('body-parser') 
+const mongoose = require('mongoose');
 
 //This app redirect specific routes for the proper files
 const productRoutes = require('./api/routes/products');
 const ordersRoutes = require('./api/routes/orders');
 
+//comando brew services start mongodb-community
+mongoose.connect('mongodb://localhost:27017/test',{useNewUrlParser: true}).then(() => console.log('DB Connected!'))
+.catch(err => {
+console.log(Error, err.message);
+//console.log('Not Connected');
+});
+
 app.use(morgan('dev')); //log the operations through the server
 app.use(bodyParser.urlencoded({extended: false})); //Receive body requests, the extend iqual to false means that only suport simple bodies
 app.use(bodyParser.json());     //The body parser allows the body property inside the requests
 app.use(cors());
-
 app.use(express.static("./landingPage/"));
 
 app.get('/',(req, res, next)=>{ //In case of train to access the root adress

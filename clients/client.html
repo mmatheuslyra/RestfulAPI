@@ -32,10 +32,9 @@
     <script>
       $(document).ready(function(){
 			$('#btncad').click(function(){
-        const url = 'http://localhost:3000/orders/';
-        const url2 = 'http://localhost:3000/products/';
+        const url = 'http://localhost:3000/products/';
       
-        $.getJSON(url2+$('#rq').val(), function(emp) { 
+        $.getJSON(url+$('#rq').val(), function(emp) { 
             $('#table1').append($("<tr>")
             .append('<td>' + emp.message+ '</td>')
             .append('<td>' + emp.id+ '</td>')
@@ -123,8 +122,6 @@
                             </div>
                         </div>
                       </div>
-
-
             </div>
           </form>
         </div>

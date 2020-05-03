@@ -20,6 +20,8 @@
     "express": "^4.17.1",
     "jquery": "^3.5.0",
     "jquery-migrate": "^3.2.0",
+    "mongodb": "^3.5.7",
+    "mongoose": "^5.9.11",
     "morgan": "^1.10.0"
   },
   "devDependencies": {
