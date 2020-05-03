@@ -17,8 +17,8 @@
         background-color: #343a40;
         background: url("photo-1510074377623-8cf13fb86c08.jpeg") no-repeat center center;
         background-size: cover;
-        padding-top: 16rem;
-        padding-bottom: 16rem;
+        padding-top: 12rem;
+        padding-bottom: 12rem;
       }
     </style>
     <meta charset="utf-8">
@@ -58,33 +58,6 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Início<span class="sr-only">(current)</span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Promoções</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Categorias
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Roupas</a>
-            <a class="dropdown-item" href="#">Acessórios</a>
-          </div>
-        </li>
-      </ul>
-
-      <div class="form-inline ml-auto">
-          <input type="text" class="form-control mr-2">
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button">Busca</button>
-          </span>
-        </div>
-    </div>
   </nav>
 
   <header class="masthead text-white text-center">
@@ -94,19 +67,53 @@
         <div class="col-xl-9 mx-auto">
           <h1 class="mb-5">Receba as nossas novidades em primeira mão!</h1>
         </div>
-        <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
-          <form>
-            <div class="form-row">
-              <div class="col-12 col-md-9 mb-2 mb-md-0">
-                <input type="text" id="rq" class="form-control form-control-lg" placeholder="Digite seu email...">
-                <p id="response" style="font-weight:bold"> </p>
+        
+        <div class="container-fluid text-dark">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card ">
+                        <div class="card-header ">
+                            <h4 class="card-title">Email Statistics</h4>
+                            <p class="card-category">Last Campaign Performance</p>
+                        </div>
+                        <div class="card-body ">
+                            <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
+                            <div class="legend">
+                                <i class="fa fa-circle text-info"></i> Open
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card ">
+                      <div class="card-header ">
+                          <h4 class="card-title">Email Statistics</h4>
+                          <p class="card-category">Last Campaign Performance</p>
+                      </div>
+                      <div class="card-body ">
+                          <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
+                          <div class="legend">
+                              <i class="fa fa-circle text-info"></i> Open
+                          </div>
+                      </div>
+                  </div>
               </div>
-              <div class="col-12 col-md-3">
-                <button type="button" id="btncad" class="btn btn-block btn-lg btn-primary">Cadastra-se</button>
-                
-              </div>
+              <div class="col-md-4">
+                <div class="card ">
+                    <div class="card-header ">
+                        <h4 class="card-title">Email Statistics</h4>
+                        <p class="card-category">Last Campaign Performance</p>
+                    </div>
+                    <div class="card-body ">
+                        <div id="chartPreferences" class="ct-chart ct-perfect-fourth"></div>
+                        <div class="legend">
+                            <i class="fa fa-circle text-info"></i> Open
+                        </div>
+                    </div>
+                </div>
             </div>
-          </form>
+            </div>
+        </form>
         </div>
       </div>
     </div>
@@ -115,22 +122,12 @@
     <footer class="footer bg-light">
       <div class="container">
         <div class="row">
-          <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+          <div class="col-lg-10 h-100 text-center text-lg-left my-auto">
             <ul class="list-inline mb-2">
               <li class="list-inline-item">
-                <a href="#">Saiba mais sobre a loja</a>
-              </li>
-              <li class="list-inline-item">&sdot;</li>
-              <li class="list-inline-item">
                 <a href="#">Contato</a>
-              </li>
-              <li class="list-inline-item">&sdot;</li>
-              <li class="list-inline-item">
-                <a href="#">Termos de uso</a>
-              </li>
-              <li class="list-inline-item">&sdot;</li>
-              <li class="list-inline-item">
-                <a href="#">Política de Privacidade</a>
+                &sdot;<a href="#">  Termos de uso</a>
+                &sdot;<a href="#">  Política de Privacidade</a>
               </li>
             </ul>
           </div>
