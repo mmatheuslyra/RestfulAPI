@@ -4,11 +4,6 @@ const mongoose = require('mongoose');
 
 const Product = require('../modules/products');
 
-router.get('/', (req, res, next)=>{
-    res.status(200).json({
-        message: "GET Request to /products"
-    });
-});
 
 router.post('/', (req, res, next)=>{
     /*const product = {
@@ -34,24 +29,41 @@ router.post('/', (req, res, next)=>{
     });
 });
 
+router.get('/',(req,res,next)=>{
+    Product.find().lean().then(result=>{
+        res.status(200).json(result);
+    }).catch(err=>{
+        res.status(404).json(err);
+    });
+});
+
 router.get('/:productID', (req, res, next)=>{
-    const id = req.params.productID;
-    res.status(200).json({
-        message: 'GET request for productID',
-        id: id
+    Product.findById(req.params.productID).exec().then(doc=>{
+        res.status(200).json(doc);
+    }).catch(err=>{
+        res.status(200).json({
+            message:"Data doesn't exists"
+        });
     });
 });
 
 router.patch('/:productID', (req, res, next)=>{
-    res.status(200).json({
-        message: 'Updated product'
-    });
+    Product.update({_id: req.body.productID}, {$set:{ name: req.body.name, price: req.body.price}}).then((result)=>{
+        res.status(200).json(result);
+    }).catch(err=>{
+        res.status(200).json(err);
+    })
 });
 
 router.delete('/:productID', (req, res, next)=>{
-    res.status(200).json({
-        message: 'Deleted product'
-    });
+    Product.remove({_id: req.params.productID}).then(result=>{
+        res.status(200).json({
+            message: 'Deleted',
+            result
+        });
+    }).catch(err=>{
+        res.status(500).json(err);
+    })
 });
 
 module.exports = router;
