@@ -48,7 +48,7 @@ router.get('/:productID', (req, res, next)=>{
 });
 
 router.patch('/:productID', (req, res, next)=>{
-    Product.update({_id: req.body.productID}, {$set:{ name: req.body.name, price: req.body.price}}).then((result)=>{
+    Product.update({_id: req.params.productID}, {$set:{ name: req.body.name, price: req.body.price}}).then((result)=>{
         res.status(200).json(result);
     }).catch(err=>{
         res.status(200).json(err);
