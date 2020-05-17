@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 
 const Product = require('../modules/products');
 
-
 router.post('/', (req, res, next)=>{
     /*const product = {
         name: req.body.name,
