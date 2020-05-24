@@ -23,7 +23,7 @@ route.post('/',(req, res, next)=>{
 
     order.save().then(result=>{
           res.status(200).json({
-            message: 'Orders was created',
+            message: 'Order was created',
             result
           });
     }).catch(err=>{

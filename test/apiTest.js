@@ -14,12 +14,31 @@ describe('Testing API requests', ()=>{
                 .get('/products')
                 .end((err,response)=>{
                     response.should.have.status(200);
-                    //response.should.be.a('array');
-                    //response.should.be.eq(3);
                 done();
                 })
 
         });
     })
-    // Test the GET (by id) route
+
+
+    // Test the POST
+    describe('POST /orders/',()=>{
+        it('It should create a new order', (done)=>{
+            const newOrder = {
+                "quantity":"1000"
+            }
+            chai.request('http://localhost:3000') //chai.request(server)
+                .post('/orders')
+                .send(newOrder)
+                .end((err,response)=>{
+                    response.should.have.status(200);
+                    response.body.should.be.a('object');
+                    response.body.should.have.property('message');
+                    response.body.should.have.property('message').eq('Order was created');
+                    response.body.should.have.property('result');
+                done();
+                })
+
+        });
+    })
 });
