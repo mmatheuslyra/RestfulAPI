@@ -71,6 +71,46 @@ function binarySearch(array, left, right, value){
    
 }  
 
+class car{
+    constructor(owner, brand){
+        this.owner = owner;
+        this.brand = brand;
+    }
+
+    carCall(){
+        return 'Hello ' + this.owner + ', you have a ' + this.brand;
+    }
+
+    static carBrand(brand){
+        return 'This is a ' + brand;
+    }
+}
+
+class Model extends car {
+    constructor(owner, brand, mod) {
+      super(owner, brand);
+      this.model = mod;
+    }
+    
+    show() {
+      return this.carCall() + ', it is a ' + this.model;
+    }
+}
+
+function carCall(owner, brand){
+    const newCar = new car(owner, brand);
+    return newCar.carCall();
+}
+
+function carBrandCall(brand){
+    return car.carBrand(brand);
+}
+
+function carModel(owner, brand, model){
+    const newCarModel = new Model(owner, brand, model);
+    return newCarModel.show();
+}
+
 exports.getData = getData;
 exports.filterItems = filterItems;
 exports.sumItems = sumItems;
@@ -78,3 +118,6 @@ exports.productDiscount = productDiscount;
 exports.returnItemsOverPrice = returnItemsOverPrice;
 exports.returnPrice = returnPrice;
 exports.binarySearch = binarySearch;
+exports.carCall = carCall;
+exports.carBrandCall = carBrandCall;
+exports.carModel = carModel;

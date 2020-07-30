@@ -1,6 +1,8 @@
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 const server = require('../server');
+const { response } = require('express');
+const { request } = require('chai');
 
 
 chai.should() // Assertion Style
@@ -41,4 +43,17 @@ describe('Testing API requests', ()=>{
 
         });
     })
+
+    describe('GET /products/:productID',()=>{
+        it('Should return a single product',()=>{
+            chai.request('http://localhost:3000')
+                .get('/products/5eb89ba62dce6b024254d507')
+                .end((err,response)=>{
+                    response.body.should.have.property('name');
+                    response.body.should.have.property('name').eq('Watchment');
+                    response.body.should.have.property('price')
+                    response.body.should.have.property('price').eq(17);
+                })
+        });
+    });
 });
